@@ -2,6 +2,7 @@ package co.uk.ryanmoss.graphql.controller;
 
 import java.util.List;
 
+import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
 
@@ -18,5 +19,10 @@ public class BookController {
     @SchemaMapping(typeName = "Query",value = "allBooks")
     public List<Book> findAll() {
         return bookService.findAll();
+    }
+
+    @SchemaMapping(typeName = "Query", value = "findBooksByAuthor")
+    public List<Book> findBooksByAuthor(@Argument String author) {
+        return bookService.findBooksByAuthor(author);
     }
 }

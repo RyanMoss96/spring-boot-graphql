@@ -14,17 +14,15 @@ import lombok.ToString;
 @Data
 @Builder
 @Entity
-@Table(name = "books")
+@Table(name = "authors")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Book {
+public class Author {
 
     @Id
     @ToString.Exclude
     @GeneratedValue
     private Long id;
 
-    private String title;
-
-    private Author author;
+    private String name;
 }
